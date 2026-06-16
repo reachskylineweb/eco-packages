@@ -2417,6 +2417,11 @@ img, svg {
     .section-padding-large {
         padding: 90px 0;
     }
+    
+    .hero-section {
+        padding-top: 145px !important;
+        padding-bottom: 80px !important;
+    }
 
     .grid-two-cols {
         grid-template-columns: 1fr;
@@ -2868,6 +2873,10 @@ img, svg {
 @media (max-width: 480px) {
     .section-padding-large {
         padding: 60px 0 !important;
+    }
+    .hero-section {
+        padding-top: 135px !important;
+        padding-bottom: 60px !important;
     }
     .contact-card-form {
         padding: 30px 20px !important;
