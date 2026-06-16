@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bell Ecopack | Premium Eco-Friendly Packaging Manufacturing</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bell Ecopack manufactures premium, international-grade eco-friendly packaging. We specialize in custom-printed, food-safe paper packaging including Popcorn, Burger, and Cake boxes.">
+    <meta name="keywords" content="eco packaging, sustainable manufacturing, custom box printing, burger box, cake box, popcorn box, food grade packaging, luxury packaging">
+    <meta name="author" content="Bell Ecopack">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bellecopack.com/">
+    <meta property="og:title" content="Bell Ecopack | Premium Eco-Friendly Packaging Manufacturing">
+    <meta property="og:description" content="Award-winning sustainable packaging engineered for modern global brands. Premium food-grade & retail packaging solutions.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Bell Ecopack | Premium Eco-Friendly Packaging Manufacturing">
+    <meta property="twitter:description" content="Award-winning sustainable packaging engineered for modern global brands. Premium food-grade & retail packaging solutions.">
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Third-Party Libraries (CDNs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- CINEMATIC PRELOADER (POPCORN LOADER)       -->
+    <!-- ========================================== -->
+    <div id="preloader" class="popcorn-loader">
+        <div class="preloader-overlay"></div>
+        <div class="preloader-content">
+            <!-- 3D CSS Folding Container -->
+            <div class="preloader-box-scene">
+                <div class="folding-box" id="loader-box">
+                    <div class="face-wrapper front"><div class="face"><span>ECO</span></div></div>
+                    <div class="face-wrapper back"><div class="face"><span>PACK</span></div></div>
+                    <div class="face-wrapper left"><div class="face"></div></div>
+                    <div class="face-wrapper right"><div class="face"></div></div>
+                    <div class="face-wrapper top"><div class="face"></div></div>
+                    <div class="face-wrapper bottom"><div class="face"></div></div>
+                </div>
+            </div>
+            
+            <!-- Die-Cut SVG Animation Overlay -->
+            <svg class="die-cut-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="die-line" d="M 10 10 L 90 10 L 90 90 L 10 90 Z" />
+                <path class="die-line fold" d="M 30 10 L 30 90 M 70 10 L 70 90 M 10 30 L 90 30 M 10 70 L 90 70" />
+            </svg>
+
+            <!-- Loading Percentage & Production Line -->
+            <div class="preloader-progress-wrap">
+                <div class="logo-wrap">
+                    <span class="logo-text">BELL <span class="accent">ECOPACK</span></span>
+                </div>
+                <div class="percentage-count"><span id="percentage">0</span>%</div>
+                
+                <!-- Production Conveyor Belt Line -->
+                <div class="production-line-container">
+                    <div class="conveyor-belt">
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                    </div>
+                    <div class="production-progress-line" id="production-progress"></div>
+                </div>
+                <p class="loader-status">Assembling Sustainable Luxury...</p>
+            </div>
+        </div>
+        
+        <!-- Organic Floating Particles inside Loader -->
+        <div id="preloader-particles"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- BACKGROUND EFFECTS                         -->
+    <!-- ========================================== -->
+    <div class="bg-effects">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="leaf-particles" id="leaf-container"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- NAVIGATION HEADER                          -->
+    <!-- ========================================== -->
+    <div id="header-placeholder">
+        <header class="navbar-header">
+            <nav class="navbar container">
+                <a href="index.html" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                        <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="url(#logoGrad)" />
+                        <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                        <path d="M20 12C17.5 17.5 16.5 22.5 20 30C23.5 22.5 22.5 17.5 20 12Z" fill="var(--color-primary)" />
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="var(--color-primary)" />
+                                <stop offset="1" stop-color="var(--color-accent-gold)" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">BELL <span>ECOPACK</span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-cta-wrap">
+                    <a href="contact.html" class="btn btn-primary magnetic" id="nav-quote-btn">Request a Quote</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Mobile Drawer Navigation -->
+        <div class="mobile-drawer">
+            <ul class="drawer-links">
+                <li><a href="index.html" class="drawer-link">Home</a></li>
+                <li><a href="about.html" class="drawer-link">About Us</a></li>
+                <li><a href="products.html" class="drawer-link">Our Products</a></li>
+                <li><a href="contact.html" class="drawer-link">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary drawer-btn">Get Custom Quote</a>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MAIN CONTENT                               -->
+    <!-- ========================================== -->
+    <main>
+
+        <!-- ========================================== -->
+        <!-- HERO SECTION                               -->
+        <!-- ========================================== -->
+        <section id="hero" class="hero-section section-padding-large">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="tagline">
+                        <span class="line-decorator"></span>
+                        <span class="tag-text">Next-Generation Packaging</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span>Sustainable</span> <span>Packaging</span> <span>Solutions</span> <span>Engineered</span> <span>For</span> <span>Modern</span> <span>Brands</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        We manufacture premium eco-friendly packaging that enhances product presentation, strengthens brand identity, and supports a greener future.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="contact.html" class="btn btn-primary btn-large magnetic">
+                            <span>Request a Quote</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="products.html" class="btn btn-secondary btn-large">
+                            <span>Explore Products</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Three.js Canvas Container -->
+                <div class="hero-interactive-3d">
+                    <div class="canvas-glow"></div>
+                    <div id="hero-canvas-container"></div>
+                    <!-- Helper Overlay Hints -->
+                    <div class="canvas-hint">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .2 1.5.5 2.5"/>
+                            <path d="M9 18h6M10 22h4"/>
+                        </svg>
+                        <span>Move mouse to tilt • Hover boxes to open</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: ABOUT COMPANY                   -->
+        <!-- ========================================== -->
+        <section id="about" class="about-section section-padding-large">
+            <div class="container grid-two-cols">
+                <div class="about-image-side">
+                    <div class="image-box-wrapper">
+                        <!-- Luxury Kraft Card with overlapping layouts -->
+                        <div class="kraft-card card-back"></div>
+                        <div class="kraft-card card-main">
+                            <div class="card-inner-branding">
+                                <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="var(--color-primary)" fill-opacity="0.1" />
+                                    <path d="M20 8C14 16 13 22 20 32C27 22 26 16 20 8Z" fill="var(--color-accent-gold)" />
+                                </svg>
+                                <h3>EST. 2012</h3>
+                                <p>Engineering Excellence</p>
+                            </div>
+                        </div>
+                        <div class="kraft-card card-front glass">
+                            <p class="stat-large">100%</p>
+                            <p class="stat-label">Biodegradable & Recyclable Materials</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-content-side">
+                    <div class="section-tag">About Company</div>
+                    <h2 class="section-title">Engineering Sustainable Packaging Excellence</h2>
+                    
+                    <p class="section-desc">
+                        We create innovative eco-friendly packaging solutions for food, retail, hospitality, bakery, and consumer brands worldwide. Combining advanced manufacturing, sustainable materials, and precision engineering, we deliver packaging solutions that elevate products while reducing environmental impact.
+                    </p>
+
+                    <div class="highlights-list">
+                        <div class="highlight-item">
+                            <div class="icon-wrap">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <div class="text-wrap">
+                                <h4>Sustainable Materials</h4>
+                                <p>FSC-certified kraft papers and water-based eco inks.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-item">
+                            <div class="icon-wrap">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path>
+                                </svg>
+                            </div>
+                            <div class="text-wrap">
+                                <h4>Food Grade Manufacturing</h4>
+                                <p>100% US-FDA & BRCGS certified dust-free clean room facilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-item">
+                            <div class="icon-wrap">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="text-wrap">
+                                <h4>Advanced Printing Technology</h4>
+                                <p>High definition multi-color offset and flexographic printing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: MANUFACTURING PROCESS           -->
+        <!-- ========================================== -->
+        <section id="process" class="process-section section-padding-large">
+            <div class="container">
+                <div class="text-center-heading">
+                    <div class="section-tag">How We Make It</div>
+                    <h2 class="section-title">The Luxury Manufacturing Process</h2>
+                    <p class="section-desc max-width-center">
+                        Every package is engineered with absolute precision, starting from sustainably sourced raw materials to final state-of-the-art dispatch quality checks.
+                    </p>
+                </div>
+
+                <!-- Timeline wrapper -->
+                <div class="timeline-wrapper">
+                    <!-- SVG Path tracker -->
+                    <div class="timeline-line-svg-container">
+                        <svg class="timeline-svg" viewBox="0 0 10 100" preserveAspectRatio="none">
+                            <path class="timeline-base-line" d="M 5 0 L 5 100" />
+                            <path class="timeline-fill-line" id="timeline-progress-fill" d="M 5 0 L 5 100" />
+                        </svg>
+                    </div>
+
+                    <div class="timeline-container">
+                        <!-- Stage 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>01</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Raw Material Selection</h3>
+                                <p>We source FDA-approved food-safe paperboard and FSC-certified virgin kraft paper. All paper undergoes moisture, thickness, and strength checking.</p>
+                                <span class="stage-tag">Sustainable & Safe</span>
+                            </div>
+                        </div>
+
+                        <!-- Stage 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>02</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Structural Packaging Design</h3>
+                                <p>Our CAD engineers design layouts, die-lines, and 3D folding systems. We ensure optimal material usage and structural resilience.</p>
+                                <span class="stage-tag">Precision Engineering</span>
+                            </div>
+                        </div>
+
+                        <!-- Stage 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>03</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Precision Die Cutting</h3>
+                                <p>High-speed automatic platen die-cut machines stamp shapes and score fold lines with millimeter accuracy to guarantee seamless folding later.</p>
+                                <span class="stage-tag">Automated Shaping</span>
+                            </div>
+                        </div>
+
+                        <!-- Stage 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>04</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Printing & Branding</h3>
+                                <p>Using advanced multi-color offset and eco-friendly water-based flexo inks, we apply rich colors, gold foil accents, and branding patterns.</p>
+                                <span class="stage-tag">Eco-Luxury Aesthetics</span>
+                            </div>
+                        </div>
+
+                        <!-- Stage 5 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>05</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Folding & Assembly</h3>
+                                <p>State-of-the-art folder gluers fold, glue, and lock shapes using non-toxic food-grade adhesives at speeds up to 10,000 units per hour.</p>
+                                <span class="stage-tag">Automated Gluer Systems</span>
+                            </div>
+                        </div>
+
+                        <!-- Stage 6 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>06</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Quality Inspection</h3>
+                                <p>Inline camera inspection systems analyze every single box for prints alignment, adhesive consistency, and structural stability.</p>
+                                <span class="stage-tag">Zero Defect Policy</span>
+                            </div>
+                        </div>
+
+                        <!-- Stage 7 -->
+                        <div class="timeline-item">
+                            <div class="timeline-number"><span>07</span></div>
+                            <div class="timeline-card glass">
+                                <h3>Packaging & Dispatch</h3>
+                                <p>Inspected boxes are flat-packed in heavy-duty outer cartons, heat-sealed, palletized, and prepared for global shipping.</p>
+                                <span class="stage-tag">Global Delivery Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- ADVANCED PRODUCT SWAP SYSTEM (CAROUSEL)    -->
+        <!-- ========================================== -->
+        <section id="carousel-section" class="carousel-section section-padding-large">
+            <div class="container">
+                <div class="text-center-heading">
+                    <div class="section-tag">Interactive Catalog</div>
+                    <h2 class="section-title">Apple Vision Pro Style Carousel</h2>
+                    <p class="section-desc max-width-center">
+                        Drag or scroll through our flagship packaging lines. Experience depth perspective and luxury folding layouts.
+                    </p>
+                </div>
+                
+                <!-- 3D Carousel Wrapper -->
+                <div class="carousel-3d-container">
+                    <div class="carousel-track" id="carousel-track">
+                        
+                        <!-- Card 1: Popcorn -->
+                        <div class="carousel-card active-card" data-index="0" data-product="Popcorn Packaging" data-desc="Premium tapered open boxes built with highly durable greaseproof kraft paperboard. Perfect for cinema halls, stadiums, and retail food chains." data-features="Grease-resistant inner coat • Sturdy bottom lock • Custom offset branding" data-cta="contact.html">
+                            <div class="card-visual kraft-bg">
+                                <div class="eco-badge">Eco Friendly</div>
+                                <div class="card-outline-box popcorn-box-wire"></div>
+                                <span class="box-label">01 / POPCORN BOX</span>
+                            </div>
+                            <div class="card-label">Popcorn Box</div>
+                        </div>
+
+                        <!-- Card 2: Burger -->
+                        <div class="carousel-card" data-index="1" data-product="Burger Packaging" data-desc="Clamshell burger boxes featuring integrated ventilation slots to keep food warm. Made from 100% compostable micro-flute board." data-features="Heat retention locks • Biodegradable raw fibers • Moisture venting design" data-cta="contact.html">
+                            <div class="card-visual white-kraft-bg">
+                                <div class="eco-badge">FDA Approved</div>
+                                <div class="card-outline-box burger-box-wire"></div>
+                                <span class="box-label">02 / BURGER BOX</span>
+                            </div>
+                            <div class="card-label">Burger Box</div>
+                        </div>
+
+                        <!-- Card 3: Cake -->
+                        <div class="carousel-card" data-index="2" data-product="Cake Packaging" data-desc="Luxury square bakery boxes fitted with smart top carry-handles and clear window view panels. Crafted for upscale confectionery boutiques." data-features="Top-handle integration • Side drop loading • Scratch-resistant bio window" data-cta="contact.html">
+                            <div class="card-visual kraft-bg">
+                                <div class="eco-badge">Bakery Grade</div>
+                                <div class="card-outline-box cake-box-wire"></div>
+                                <span class="box-label">03 / CAKE BOX</span>
+                            </div>
+                            <div class="card-label">Cake Box</div>
+                        </div>
+
+                        <!-- Card 4: Food Containers -->
+                        <div class="carousel-card" data-index="3" data-product="Food Containers" data-desc="Rigid paper containers for hot soups, salads, and gravies. Coated with biodegradable PLA lining that provides 100% leakproof security." data-features="PLA leak barrier • Tight-fit lid options • Microwave safe board" data-cta="contact.html">
+                            <div class="card-visual white-kraft-bg">
+                                <div class="eco-badge">PLA Lined</div>
+                                <div class="card-outline-box container-box-wire"></div>
+                                <span class="box-label">04 / FOOD CONTAINER</span>
+                            </div>
+                            <div class="card-label">Food Containers</div>
+                        </div>
+
+                        <!-- Card 5: Custom Printed Packaging -->
+                        <div class="carousel-card" data-index="4" data-product="Custom Printed Packaging" data-desc="Fully customizable packaging designed from the ground up. Features spot UV print, metallic gold stamp foils, and embossing details." data-features="HD offset printing • Gold hot foil details • Custom dimensions" data-cta="contact.html">
+                            <div class="card-visual gold-glow-bg">
+                                <div class="eco-badge">Premium Foil</div>
+                                <div class="card-outline-box custom-box-wire"></div>
+                                <span class="box-label">05 / CUSTOM PRINTED</span>
+                            </div>
+                            <div class="card-label">Custom Printed</div>
+                        </div>
+
+                        <!-- Card 6: Retail Packaging -->
+                        <div class="carousel-card" data-index="5" data-product="Retail Packaging" data-desc="High-strength kraft carrier bags, sleeve wraps, and counter displays. Optimized for luxury retail experiences and robust product shipping." data-features="Cotton handle bags • Heavy duty structures • Smart retail presentation" data-cta="contact.html">
+                            <div class="card-visual kraft-bg">
+                                <div class="eco-badge">Retail Luxury</div>
+                                <div class="card-outline-box retail-box-wire"></div>
+                                <span class="box-label">06 / RETAIL PACK</span>
+                            </div>
+                            <div class="card-label">Retail Packaging</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Active Details Dynamic Content -->
+                <div class="carousel-details-wrap glass">
+                    <div class="details-content">
+                        <div class="details-header">
+                            <span class="active-badge">Active Product</span>
+                            <h3 id="details-title">Popcorn Packaging</h3>
+                        </div>
+                        <p id="details-desc">Premium tapered open boxes built with highly durable greaseproof kraft paperboard. Perfect for cinema halls, stadiums, and retail food chains.</p>
+                        
+                        <div class="details-features-grid">
+                            <div class="feat-pill"><span class="feat-dot"></span><span id="feat-1">Grease-resistant inner coat</span></div>
+                            <div class="feat-pill"><span class="feat-dot"></span><span id="feat-2">Sturdy bottom lock</span></div>
+                            <div class="feat-pill"><span class="feat-dot"></span><span id="feat-3">Custom offset branding</span></div>
+                        </div>
+
+                        <div class="details-actions">
+                            <a href="contact.html" class="btn btn-primary magnetic" id="details-cta">Get Quote For This Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel navigation triggers -->
+                <div class="carousel-controls">
+                    <button class="ctrl-btn prev-btn" aria-label="Previous Product">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carousel-dots"></div>
+                    <button class="ctrl-btn next-btn" aria-label="Next Product">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: PRODUCT SHOWCASE                -->
+        <!-- ========================================== -->
+        <section id="showcase" class="showcase-section section-padding-large">
+            <div class="container">
+                <div class="text-center-heading">
+                    <div class="section-tag">Our Products</div>
+                    <h2 class="section-title">Premium 3D Product Cards</h2>
+                    <p class="section-desc max-width-center">
+                        Hover or move your mouse over each card to experience active depth perspective shifts, material sheen reflections, and structural previews.
+                    </p>
+                </div>
+
+                <div class="showcase-grid">
+                    <!-- Product 1: Popcorn -->
+                    <div class="product-card glass tilt-card">
+                        <div class="card-reflection"></div>
+                        <div class="product-card-visual">
+                            <div class="floating-box-graphic popcorn-graphic">
+                                <div class="graphic-face front-g"></div>
+                                <div class="graphic-face back-g"></div>
+                                <div class="graphic-face left-g"></div>
+                                <div class="graphic-face right-g"></div>
+                            </div>
+                        </div>
+                        <div class="product-card-info">
+                            <h3>Popcorn Boxes</h3>
+                            <p>Sustainably made cinema-grade containers with superior structural rigidity and fat leak barriers.</p>
+                            <span class="card-tag">Biodegradable Kraft</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Burger -->
+                    <div class="product-card glass tilt-card">
+                        <div class="card-reflection"></div>
+                        <div class="product-card-visual">
+                            <div class="floating-box-graphic burger-graphic">
+                                <div class="graphic-face top-g"></div>
+                                <div class="graphic-face bottom-g"></div>
+                            </div>
+                        </div>
+                        <div class="product-card-info">
+                            <h3>Burger Boxes</h3>
+                            <p>Clamshell designs featuring eco-coated clay panels and quick-close security tabs for takeaways.</p>
+                            <span class="card-tag">100% Compostable</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Cake -->
+                    <div class="product-card glass tilt-card">
+                        <div class="card-reflection"></div>
+                        <div class="product-card-visual">
+                            <div class="floating-box-graphic cake-graphic">
+                                <div class="graphic-face box-g"></div>
+                                <div class="graphic-face handle-g"></div>
+                            </div>
+                        </div>
+                        <div class="product-card-info">
+                            <h3>Cake Boxes</h3>
+                            <p>Heavy duty bakery boxes with crystal-clear bio window panels and convenient carrying handles.</p>
+                            <span class="card-tag">Bakery Luxury</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Food Containers -->
+                    <div class="product-card glass tilt-card">
+                        <div class="card-reflection"></div>
+                        <div class="product-card-visual">
+                            <div class="floating-box-graphic container-graphic"></div>
+                        </div>
+                        <div class="product-card-info">
+                            <h3>Food Containers</h3>
+                            <p>Leakproof bowls, noodle pails, and dual-layer heat insulated round packaging.</p>
+                            <span class="card-tag">FDA Approved PLA</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 5: Custom Printed -->
+                    <div class="product-card glass tilt-card">
+                        <div class="card-reflection"></div>
+                        <div class="product-card-visual">
+                            <div class="floating-box-graphic custom-graphic"></div>
+                        </div>
+                        <div class="product-card-info">
+                            <h3>Custom Printed Packaging</h3>
+                            <p>Premium customized finishes featuring custom sizes, metallic hot foil stamping, and debossing.</p>
+                            <span class="card-tag">Bespoke Branding</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 6: Retail Packaging -->
+                    <div class="product-card glass tilt-card">
+                        <div class="card-reflection"></div>
+                        <div class="product-card-visual">
+                            <div class="floating-box-graphic retail-graphic"></div>
+                        </div>
+                        <div class="product-card-info">
+                            <h3>Retail Packaging</h3>
+                            <p>High-end eco carrier shopping bags, sleeves, and retail display folding trays.</p>
+                            <span class="card-tag">Luxury Brand Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: WHY CHOOSE US                   -->
+        <!-- ========================================== -->
+        <section id="why-choose-us" class="why-section section-padding-large">
+            <div class="container">
+                <div class="text-center-heading">
+                    <div class="section-tag">Our Strengths</div>
+                    <h2 class="section-title">The Foundation Of Packaging Luxury</h2>
+                    <p class="section-desc max-width-center">
+                        Why global brands rely on Bell Ecopack for their sustainable scale-up operations and custom designs.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card glass">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Sustainable Manufacturing</h3>
+                        <p>We operate highly energy-efficient plants with carbon offsetting schemes and solar production grids.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card glass">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l7-7 3 3-10 10L3 15l3-3z"/>
+                                <path d="M19 9l-7-7-9 9 3 3 6-6 7 7"/>
+                            </svg>
+                        </div>
+                        <h3>Custom Packaging Solutions</h3>
+                        <p>Our dedicated CAD engineering team delivers rapid sampling and custom box prototypes within 48 hours.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card glass">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3>Food Safety Standards</h3>
+                        <p>We are BRCGS Global Standard AA Certified and produce packaging in strictly monitored sanitised spaces.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card glass">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                        </div>
+                        <h3>Large Production Capacity</h3>
+                        <p>With three integrated automated facilities, we produce up to 2 million units daily to prevent supply shortages.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 5: FACTORY STATISTICS              -->
+        <!-- ========================================== -->
+        <section id="stats" class="stats-section section-padding-large">
+            <div class="container stats-grid">
+                <!-- Stat 1 -->
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="50">0</span>M+</div>
+                    <div class="stat-label">Packaging Units Annually</div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="100">0</span>+</div>
+                    <div class="stat-label">Corporate Clients</div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+                    <div class="stat-label">Export Countries</div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
+                    <div class="stat-label">Employees</div>
+                </div>
+
+                <!-- Stat 5 -->
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
+                    <div class="stat-label">Customer Satisfaction</div>
+                </div>
+
+                <!-- Stat 6 -->
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="25000">0</span>+</div>
+                    <div class="stat-label">Sq. Ft Manufacturing Facility</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 6: GLOBAL EXPORT PRESENCE          -->
+        <!-- ========================================== -->
+        <section id="presence" class="presence-section section-padding-large">
+            <div class="container grid-two-cols">
+                <div class="presence-content">
+                    <div class="section-tag">Global Logistics</div>
+                    <h2 class="section-title">Global Export Presence</h2>
+                    <p class="section-desc">
+                        Our integrated logistics network coordinates exports from our manufacturing hub in Tamil Nadu, India to critical commercial ports worldwide. We handle custom regulatory clearing and sea freights.
+                    </p>
+
+                    <div class="presence-stats">
+                        <div class="p-stat">
+                            <span class="p-val">3</span>
+                            <span class="p-lbl">Hub Warehouses</span>
+                        </div>
+                        <div class="p-stat">
+                            <span class="p-val">12+</span>
+                            <span class="p-lbl">Port Integrations</span>
+                        </div>
+                        <div class="p-stat">
+                            <span class="p-val">45 Days</span>
+                            <span class="p-lbl">Max Transit Global Lead Time</span>
+                        </div>
+                    </div>
+
+                    <p class="presence-note">
+                        *Hover on the map markers to view export hubs, custom clearing networks, and freight lanes from Tamil Nadu.
+                    </p>
+                </div>
+
+                <div class="presence-map-container">
+                    <div class="map-wrapper">
+                        <!-- Custom World Outline SVG Map -->
+                        <svg class="world-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Map Outlines -->
+                            <rect width="1000" height="600" fill="none" />
+                            
+                            <!-- Simplified World Outline Shapes -->
+                            <path class="map-country" d="M 80 120 L 150 100 L 220 120 L 250 180 L 180 250 L 100 220 L 60 180 Z" />
+                            <path class="map-country" d="M 100 240 L 150 250 L 160 300 L 110 320 L 90 280 Z" />
+                            <path class="map-country" d="M 180 320 L 250 340 L 280 400 L 240 500 L 200 480 L 160 380 Z" />
+                            <path class="map-country" d="M 450 100 L 520 90 L 560 140 L 500 200 L 440 160 Z" />
+                            <path class="map-country" d="M 440 240 L 520 220 L 580 280 L 560 420 L 480 440 L 430 340 Z" />
+                            <!-- India (Manufacturing Hub Tamil Nadu shifted south) -->
+                            <path class="map-country map-hub" d="M 640 220 L 670 230 L 685 275 L 660 330 L 635 250 Z" />
+                            <path class="map-country" d="M 550 210 L 610 220 L 600 260 L 540 240 Z" />
+                            <path class="map-country" d="M 580 90 L 700 80 L 850 100 L 880 180 L 750 200 L 600 160 Z" />
+                            <path class="map-country" d="M 720 210 L 780 200 L 800 280 L 730 300 L 700 260 Z" />
+                            <path class="map-country" d="M 780 400 L 860 380 L 880 440 L 820 480 L 760 450 Z" />
+
+                            <!-- Lane connections (dynamic dash animation) starting from Tamil Nadu (665, 330) -->
+                            <!-- Hub India to USA (East Coast) -->
+                            <path class="export-lane lane-usa" d="M 665 330 Q 400 120 180 200" />
+                            <!-- Hub India to Canada (West Coast) -->
+                            <path class="export-lane lane-canada" d="M 665 330 Q 500 80 150 110" />
+                            <!-- Hub India to UAE -->
+                            <path class="export-lane lane-uae" d="M 665 330 Q 610 250 575 240" />
+                            <!-- Hub India to Saudi Arabia -->
+                            <path class="export-lane lane-saudi" d="M 665 330 Q 600 280 560 250" />
+                            <!-- Hub India to Europe -->
+                            <path class="export-lane lane-europe" d="M 665 330 Q 560 180 500 150" />
+                            <!-- Hub India to Southeast Asia -->
+                            <path class="export-lane lane-seasia" d="M 665 330 Q 700 290 750 270" />
+                            <!-- Hub India to Africa -->
+                            <path class="export-lane lane-africa" d="M 665 330 Q 580 340 520 380" />
+
+                            <!-- Interactive Pulse Markers -->
+                            <!-- India (Tamil Nadu Manufacturing Hub Center) -->
+                            <g class="map-marker active-hub" transform="translate(665, 330)">
+                                <circle class="pulse-ring" r="15" />
+                                <circle class="marker-core" r="6" />
+                            </g>
+
+                            <!-- UAE -->
+                            <g class="map-marker export-destination" transform="translate(575, 240)" data-region="UAE" data-stat="Jebel Ali Port hub supplying premium box lines across Middle East. Transit: 7 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+
+                            <!-- Saudi Arabia -->
+                            <g class="map-marker export-destination" transform="translate(560, 250)" data-region="Saudi Arabia" data-stat="Riyadh / Jeddah supply network servicing bakery chains and hypermarkets. Transit: 9 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+
+                            <!-- Europe -->
+                            <g class="map-marker export-destination" transform="translate(500, 150)" data-region="Europe" data-stat="Rotterdam Port entry supplying retail eco carrier bags & FSC food packaging. Transit: 22 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+
+                            <!-- USA -->
+                            <g class="map-marker export-destination" transform="translate(180, 200)" data-region="USA" data-stat="New York & Savannah logistics routes servicing large food chains. Transit: 30 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+
+                            <!-- Canada -->
+                            <g class="map-marker export-destination" transform="translate(150, 110)" data-region="Canada" data-stat="Vancouver terminal hub supplying bio-degradable custom printed retail bags. Transit: 35 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+
+                            <!-- SE Asia -->
+                            <g class="map-marker export-destination" transform="translate(750, 270)" data-region="Southeast Asia" data-stat="Singapore / Port Klang networks supplying quick service burger lines. Transit: 8 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+
+                            <!-- Africa -->
+                            <g class="map-marker export-destination" transform="translate(520, 380)" data-region="Africa" data-stat="Durban & Mombasa ports distributing luxury cake box containers. Transit: 18 days.">
+                                <circle class="pulse-ring" r="10" />
+                                <circle class="marker-core" r="4" />
+                            </g>
+                        </svg>
+                        
+                        <!-- Map Details Display Overlay (Virudhunagar default) -->
+                        <div class="map-details-card glass" id="map-details">
+                            <h4>Manufacturing Hub</h4>
+                            <p class="region-name">Virudhunagar, Tamil Nadu</p>
+                            <p class="region-details">Global headquarters. Fully integrated automatic manufacturing plants running 24/7.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 7: TESTIMONIALS                    -->
+        <!-- ========================================== -->
+        <section id="testimonials" class="testimonial-section section-padding-large">
+            <div class="container">
+                <div class="text-center-heading">
+                    <div class="section-tag">Client Reviews</div>
+                    <h2 class="section-title">Trusted By Global Brands</h2>
+                    <p class="section-desc max-width-center">
+                        Read feedback from franchise heads, purchasing managers, and creative directors across the globe.
+                    </p>
+                </div>
+
+                <div class="testimonial-slider-container">
+                    <div class="testimonial-track" id="testimonial-track">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide glass active-slide">
+                            <div class="quote-icon">“</div>
+                            <p class="testimonial-text">
+                                The custom burger clamshells from Bell Ecopack changed our presentation entirely. Not only are they fully compostable, but they also maintain structural strength in delivery bags. Our brand's eco score has risen by 40%.
+                            </p>
+                            <div class="client-details">
+                                <div class="client-meta">
+                                    <h4>Marcus Vance</h4>
+                                    <span>Head of Supply Chain, GreenBurger UK</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide glass">
+                            <div class="quote-icon">“</div>
+                            <p class="testimonial-text">
+                                We needed a massive supply of custom-printed cake boxes for our holiday bakery campaigns. Bell Ecopack delivered 500,000 pristine boxes on time. The hot gold foil printing detail is absolutely gorgeous.
+                            </p>
+                            <div class="client-details">
+                                <div class="client-meta">
+                                    <h4>Elena Rostova</h4>
+                                    <span>Creative Director, Dolce Confectionery</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide glass">
+                            <div class="quote-icon">“</div>
+                            <p class="testimonial-text">
+                                Their food grade cleanroom certificates gave our compliance teams 100% confidence. Finding a packaging manufacturer that delivers both premium luxury aesthetics and rigorous FDA standards is rare.
+                            </p>
+                            <div class="client-details">
+                                <div class="client-meta">
+                                    <h4>Ahmad Al-Mansoor</h4>
+                                    <span>Director of Operations, Gourmet Foods GCC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide Controls -->
+                    <div class="testimonial-controls">
+                        <button class="t-btn t-prev" aria-label="Previous Testimonial">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <div class="t-progress-bar">
+                            <div class="t-progress-fill" id="t-progress-fill"></div>
+                        </div>
+                        <button class="t-btn t-next" aria-label="Next Testimonial">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <div id="footer-placeholder">
+        <footer class="footer-section">
+            <div class="container footer-grid">
+                <div class="footer-col about-col">
+                    <a href="#" class="logo footer-logo">
+                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="var(--color-primary)" />
+                            <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                        </svg>
+                        <span class="logo-text">BELL <span>ECOPACK</span></span>
+                    </a>
+                    <p class="footer-desc">
+                        Manufacturing premium-grade, biodegradable, and compostable packaging lines that enhance modern brands. Protecting your products and our planet.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Products</h3>
+                    <ul>
+                        <li><a href="products.html">Popcorn Packaging</a></li>
+                        <li><a href="products.html">Burger Boxes</a></li>
+                        <li><a href="products.html">Cake & Bakery Boxes</a></li>
+                        <li><a href="products.html">Food Containers</a></li>
+                        <li><a href="products.html">Custom Printed Boxes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Manufacturing</h3>
+                    <ul>
+                        <li><a href="about.html">Cleanroom Facilities</a></li>
+                        <li><a href="about.html">Custom Die Designs</a></li>
+                        <li><a href="about.html">FSC Certified Paper</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Credentials -->
+            <div class="container cert-row">
+                <span class="cert-title">CERTIFIED GREEN MANUFACTURING:</span>
+                <div class="cert-grid">
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2zm0 4l6 12H6l6-12z" /></svg><span>FSC® C123456</span></div>
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M9 12l2 2 4-4" /></svg><span>ISO 9001:2015</span></div>
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 17v-5h6v5" /></svg><span>BRCGS FOOD GRADE</span></div>
+                </div>
+            </div>
+
+            <div class="container footer-copyright-bar">
+                <p>&copy; 2026 Bell Ecopack Private Limited. All Rights Reserved.</p>
+                <div class="copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main Controller JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

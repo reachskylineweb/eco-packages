@@ -1,0 +1,47 @@
+<header class="navbar-header">
+    <nav class="navbar container">
+        <a href="index.html" class="logo">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="url(#logoGrad)" />
+                <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                <path d="M20 12C17.5 17.5 16.5 22.5 20 30C23.5 22.5 22.5 17.5 20 12Z" fill="var(--color-primary)" />
+                <defs>
+                    <linearGradient id="logoGrad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="var(--color-primary)" />
+                        <stop offset="1" stop-color="var(--color-accent-gold)" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">BELL <span>ECOPACK</span></span>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta-wrap">
+            <a href="contact.html" class="btn btn-primary magnetic" id="nav-quote-btn">Request a Quote</a>
+        </div>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </button>
+    </nav>
+</header>
+
+<!-- Mobile Drawer Navigation -->
+<div class="mobile-drawer">
+    <ul class="drawer-links">
+        <li><a href="index.html" class="drawer-link">Home</a></li>
+        <li><a href="about.html" class="drawer-link">About Us</a></li>
+        <li><a href="products.html" class="drawer-link">Our Products</a></li>
+        <li><a href="contact.html" class="drawer-link">Contact Us</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary drawer-btn">Get Custom Quote</a>
+</div>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bell Ecopack - Premium Sustainable Packaging Manufacturing</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Get in touch with Bell Ecopack. Factory coordinates in Virudhunagar, Tamil Nadu. Direct sales support hotline & messaging form.">
+    <meta name="keywords" content="contact bell matches, custom print box Tamil Nadu, Sivakasi match factory address, food grade box quote">
+    
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Third-Party Libraries (CDNs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body class="page-contact">
+
+    <!-- ========================================== -->
+    <!-- CINEMATIC PRELOADER (CAKE BOX LOADER)      -->
+    <!-- ========================================== -->
+    <div id="preloader" class="cake-loader">
+        <div class="preloader-overlay"></div>
+        <div class="preloader-content">
+            <!-- 3D CSS Folding Container -->
+            <div class="preloader-box-scene">
+                <div class="folding-box" id="loader-box">
+                    <div class="face-wrapper front"><div class="face"><span>CAKE</span></div></div>
+                    <div class="face-wrapper back"><div class="face"><span>BOX</span></div></div>
+                    <div class="face-wrapper left"><div class="face"></div></div>
+                    <div class="face-wrapper right"><div class="face"></div></div>
+                    <div class="face-wrapper top"><div class="face"></div></div>
+                    <div class="face-wrapper bottom"><div class="face"></div></div>
+                </div>
+            </div>
+            
+            <!-- Die-Cut SVG Animation Overlay -->
+            <svg class="die-cut-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="die-line" d="M 10 10 L 90 10 L 90 90 L 10 90 Z" />
+                <path class="die-line fold" d="M 30 10 L 30 90 M 70 10 L 70 90 M 10 30 L 90 30 M 10 70 L 90 70" />
+            </svg>
+
+            <!-- Loading Percentage & Production Line -->
+            <div class="preloader-progress-wrap">
+                <div class="logo-wrap">
+                    <span class="logo-text">BELL <span class="accent">ECOPACK</span></span>
+                </div>
+                <div class="percentage-count"><span id="percentage">0</span>%</div>
+                
+                <div class="production-line-container">
+                    <div class="conveyor-belt">
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                    </div>
+                    <div class="production-progress-line" id="production-progress"></div>
+                </div>
+                <p class="loader-status">Assembling Cake Packaging Box...</p>
+            </div>
+        </div>
+        
+        <div id="preloader-particles"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- BACKGROUND EFFECTS                         -->
+    <!-- ========================================== -->
+    <div class="bg-effects">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="leaf-particles" id="leaf-container"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- NAVIGATION HEADER                          -->
+    <!-- ========================================== -->
+    <div id="header-placeholder">
+        <header class="navbar-header">
+            <nav class="navbar container">
+                <a href="index.html" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                        <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="url(#logoGrad)" />
+                        <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                        <path d="M20 12C17.5 17.5 16.5 22.5 20 30C23.5 22.5 22.5 17.5 20 12Z" fill="var(--color-primary)" />
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="var(--color-primary)" />
+                                <stop offset="1" stop-color="var(--color-accent-gold)" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">BELL <span>ECOPACK</span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-cta-wrap">
+                    <a href="contact.html" class="btn btn-primary magnetic" id="nav-quote-btn">Request a Quote</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Mobile Drawer Navigation -->
+        <div class="mobile-drawer">
+            <ul class="drawer-links">
+                <li><a href="index.html" class="drawer-link">Home</a></li>
+                <li><a href="about.html" class="drawer-link">About Us</a></li>
+                <li><a href="products.html" class="drawer-link">Our Products</a></li>
+                <li><a href="contact.html" class="drawer-link">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary drawer-btn">Get Custom Quote</a>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MAIN CONTENT                               -->
+    <!-- ========================================== -->
+    <main>
+
+        <section id="contact" class="contact-section hero-section has-bg section-padding-large">
+            <div class="container grid-two-cols">
+                <!-- Left Details -->
+                <div class="contact-info-side">
+                    <div class="section-tag">Get In Touch</div>
+                    <h2 class="section-title">Drop Us a Message</h2>
+                    <p class="section-desc">
+                        Connect directly with our packaging design engineers to obtain custom design templates, board samples, and volume manufacturing pricing.
+                    </p>
+
+                    <div class="contact-info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="info-text">
+                                <h4>Factory Headquarters</h4>
+                                <p>2/180, T. Managaseri, Malli (via) Srivilliputhur, Virudunagar (Dist), Pin: 626141, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="info-text">
+                                <h4>Phone Support</h4>
+                                <p>+91 78459 65010 (Available 10:00 AM – 5:00 PM IST)</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="info-text">
+                                <h4>Email Enquiries</h4>
+                                <p>sales@bellmatch.com / export@bellmatch.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="contact-form-side">
+                    <div class="contact-card-form glass">
+                        <h3>Get Custom Quote</h3>
+                        <p>Fill out details below and a structural designer will reply within 4 working hours.</p>
+                        
+                        <form id="quote-form" class="premium-form">
+                            <div class="form-row grid-two-cols-form">
+                                <div class="form-group">
+                                    <input type="text" id="name" required placeholder=" " />
+                                    <label for="name">Your Name</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="company" placeholder=" " />
+                                    <label for="company">Company Name</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row grid-two-cols-form">
+                                <div class="form-group">
+                                    <input type="email" id="email" required placeholder=" " />
+                                    <label for="email">Email Address</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" placeholder=" " />
+                                    <label for="phone">Phone Number</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <select id="requirement" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="popcorn">Popcorn Boxes</option>
+                                    <option value="burger">Burger Boxes</option>
+                                    <option value="cake">Cake Boxes</option>
+                                    <option value="straw">Straw Packaging</option>
+                                    <option value="food-container">Food Containers</option>
+                                    <option value="custom-printed">Custom Printed Packaging</option>
+                                </select>
+                                <label for="requirement" class="select-label">Select Product Category</label>
+                                <span class="focus-border"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="message" rows="4" required placeholder=" "></textarea>
+                                <label for="message">Detailed Requirement (Quantity, Size, Print type)</label>
+                                <span class="focus-border"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-submit-btn magnetic">
+                                <span>GET CUSTOM QUOTE</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <div class="success-notification" id="success-notif">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <h3>Enquiry Received</h3>
+                            <p>Thank you for choosing Bell Ecopack. A packaging engineer is reviewing your specs and will contact you shortly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Map Iframe integration around Srivilliputhur/Virudhunagar -->
+        <section class="contact-details-section" style="padding-top: 0;">
+            <div class="container">
+                <div class="contact-map-iframe-wrap">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15738.932822180805!2d77.63248695000001!3d9.5312781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06ee29f34a21e7%3A0xe2128bd68c9bc88a!2sSrivilliputhur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1718541295328!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <div id="footer-placeholder">
+        <footer class="footer-section">
+            <div class="container footer-grid">
+                <div class="footer-col about-col">
+                    <a href="#" class="logo footer-logo">
+                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="var(--color-primary)" />
+                            <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                        </svg>
+                        <span class="logo-text">BELL <span>ECOPACK</span></span>
+                    </a>
+                    <p class="footer-desc">
+                        Manufacturing premium-grade, biodegradable, and compostable packaging lines that enhance modern brands. Protecting your products and our planet.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Products</h3>
+                    <ul>
+                        <li><a href="products.html">Popcorn Packaging</a></li>
+                        <li><a href="products.html">Burger Boxes</a></li>
+                        <li><a href="products.html">Cake & Bakery Boxes</a></li>
+                        <li><a href="products.html">Food Containers</a></li>
+                        <li><a href="products.html">Custom Printed Boxes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Manufacturing</h3>
+                    <ul>
+                        <li><a href="about.html">Cleanroom Facilities</a></li>
+                        <li><a href="about.html">Custom Die Designs</a></li>
+                        <li><a href="about.html">FSC Certified Paper</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Credentials -->
+            <div class="container cert-row">
+                <span class="cert-title">CERTIFIED GREEN MANUFACTURING:</span>
+                <div class="cert-grid">
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2zm0 4l6 12H6l6-12z" /></svg><span>FSC® C123456</span></div>
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M9 12l2 2 4-4" /></svg><span>ISO 9001:2015</span></div>
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 17v-5h6v5" /></svg><span>BRCGS FOOD GRADE</span></div>
+                </div>
+            </div>
+
+            <div class="container footer-copyright-bar">
+                <p>&copy; 2026 Bell Ecopack Private Limited. All Rights Reserved.</p>
+                <div class="copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main Controller JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

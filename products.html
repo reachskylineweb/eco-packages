@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Catalog | Bell Ecopack - Premium Sustainable Packaging Manufacturing</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore Bell Ecopack's sustainable packaging range: Popcorn boxes, Burger clamshells, cake cartons, and paper straw packaging. Custom sizing and offset branding.">
+    <meta name="keywords" content="eco burger boxes, custom popcorn boxes, custom bakery packaging, paper straw packaging Sivakasi, Virudhunagar boxes">
+    
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Third-Party Libraries (CDNs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body class="page-products">
+
+    <!-- ========================================== -->
+    <!-- CINEMATIC PRELOADER (BURGER BOX LOADER)    -->
+    <!-- ========================================== -->
+    <div id="preloader" class="burger-loader">
+        <div class="preloader-overlay"></div>
+        <div class="preloader-content">
+            <!-- 3D CSS Folding Container -->
+            <div class="preloader-box-scene">
+                <div class="folding-box" id="loader-box">
+                    <div class="face-wrapper front"><div class="face"><span>BURGER</span></div></div>
+                    <div class="face-wrapper back"><div class="face"><span>BOX</span></div></div>
+                    <div class="face-wrapper left"><div class="face"></div></div>
+                    <div class="face-wrapper right"><div class="face"></div></div>
+                    <div class="face-wrapper top"><div class="face"></div></div>
+                    <div class="face-wrapper bottom"><div class="face"></div></div>
+                </div>
+            </div>
+            
+            <!-- Die-Cut SVG Animation Overlay -->
+            <svg class="die-cut-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="die-line" d="M 10 10 L 90 10 L 90 90 L 10 90 Z" />
+                <path class="die-line fold" d="M 30 10 L 30 90 M 70 10 L 70 90 M 10 30 L 90 30 M 10 70 L 90 70" />
+            </svg>
+
+            <!-- Loading Percentage & Production Line -->
+            <div class="preloader-progress-wrap">
+                <div class="logo-wrap">
+                    <span class="logo-text">BELL <span class="accent">ECOPACK</span></span>
+                </div>
+                <div class="percentage-count"><span id="percentage">0</span>%</div>
+                
+                <div class="production-line-container">
+                    <div class="conveyor-belt">
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                        <div class="conveyor-roller"></div>
+                    </div>
+                    <div class="production-progress-line" id="production-progress"></div>
+                </div>
+                <p class="loader-status">Assembling Clamshell Burger Box...</p>
+            </div>
+        </div>
+        
+        <div id="preloader-particles"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- BACKGROUND EFFECTS                         -->
+    <!-- ========================================== -->
+    <div class="bg-effects">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="leaf-particles" id="leaf-container"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- DYNAMIC LAYOUT NAVIGATION PLACEHOLDER      -->
+    <!-- ========================================== -->
+    <div id="header-placeholder">
+        <header class="navbar-header">
+            <nav class="navbar container">
+                <a href="index.html" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                        <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="url(#logoGrad)" />
+                        <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                        <path d="M20 12C17.5 17.5 16.5 22.5 20 30C23.5 22.5 22.5 17.5 20 12Z" fill="var(--color-primary)" />
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="var(--color-primary)" />
+                                <stop offset="1" stop-color="var(--color-accent-gold)" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">BELL <span>ECOPACK</span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-cta-wrap">
+                    <a href="contact.html" class="btn btn-primary magnetic" id="nav-quote-btn">Request a Quote</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Mobile Drawer Navigation -->
+        <div class="mobile-drawer">
+            <ul class="drawer-links">
+                <li><a href="index.html" class="drawer-link">Home</a></li>
+                <li><a href="about.html" class="drawer-link">About Us</a></li>
+                <li><a href="products.html" class="drawer-link">Our Products</a></li>
+                <li><a href="contact.html" class="drawer-link">Contact Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary drawer-btn">Get Custom Quote</a>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MAIN CONTENT                               -->
+    <!-- ========================================== -->
+    <main>
+
+        <!-- ========================================== -->
+        <!-- CATALOG HERO SECTION                       -->
+        <!-- ========================================== -->
+        <section class="products-intro-section has-bg section-padding-large">
+            <div class="container text-center-heading">
+                <div class="section-tag">Flagship Lines</div>
+                <h1 class="section-title">Promotional & Eco-Friendly Custom Packaging Solutions</h1>
+                <p class="section-desc max-width-center">
+                    We offer extensive personalization options regarding board caliper (thickness), custom sizes, ventilation cuts, PLA moisture barriers, and offset/flexo branding printing.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 01. POPCORN BOX SECTION                    -->
+        <!-- ========================================== -->
+        <section id="popcorn-box" class="product-detail-section section-padding-large">
+            <div class="container product-detail-grid">
+                <div class="product-text-side">
+                    <div class="product-tag">01 / Movie & Event Classics</div>
+                    <h2 class="product-name">Custom Popcorn Packaging</h2>
+                    <p class="product-description">
+                        Engineered from FDA greaseproof kraft board, our popcorn containers feature superior oil resistance, preserving crispness and preventing leakages. Features multi-color soy-based ink printing and matte varnishes for luxury presentation.
+                    </p>
+                    <ul class="product-specs-list">
+                        <li><strong>Base Paper:</strong> FDA Greaseproof Kraft Board (250 – 320 GSM)</li>
+                        <li><strong>Branding Finish:</strong> Soy-based Multi-color Ink, Matte Varnish</li>
+                        <li><strong>Standard Calipers:</strong> 32oz, 46oz, 64oz, 85oz, 130oz, 170oz</li>
+                        <li><strong>Minimum Order Qty (MOQ):</strong> 10,000 Units</li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="contact.html" class="btn btn-primary magnetic">Request a Quote</a>
+                        <a href="about.html" class="btn btn-secondary">Learn Sourcing</a>
+                    </div>
+                </div>
+                <div class="product-visual-side">
+                    <div class="product-preview-container popcorn-container">
+                        <div class="product-preview-scene">
+                            <div class="folding-box popcorn-loader product-preview-box">
+                                <div class="face-wrapper front"><div class="face"><span>ECO</span></div></div>
+                                <div class="face-wrapper back"><div class="face"><span>PACK</span></div></div>
+                                <div class="face-wrapper left"><div class="face"></div></div>
+                                <div class="face-wrapper right"><div class="face"></div></div>
+                                <div class="face-wrapper top"><div class="face"></div></div>
+                                <div class="face-wrapper bottom"><div class="face"></div></div>
+                            </div>
+                        </div>
+                        <span class="preview-instruction">Hover to Rotate & Open Flaps</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 02. BURGER BOX SECTION                     -->
+        <!-- ========================================== -->
+        <section id="burger-box" class="product-detail-section section-padding-large alternate-bg">
+            <div class="container product-detail-grid swap-order">
+                <div class="product-visual-side">
+                    <div class="product-preview-container burger-container">
+                        <div class="product-preview-scene">
+                            <div class="folding-box burger-loader product-preview-box">
+                                <div class="face-wrapper front"><div class="face"><span>BURGER</span></div></div>
+                                <div class="face-wrapper back"><div class="face"><span>BOX</span></div></div>
+                                <div class="face-wrapper left"><div class="face"></div></div>
+                                <div class="face-wrapper right"><div class="face"></div></div>
+                                <div class="face-wrapper top"><div class="face"></div></div>
+                                <div class="face-wrapper bottom"><div class="face"></div></div>
+                            </div>
+                        </div>
+                        <span class="preview-instruction">Hover to Rotate & Open Lid</span>
+                    </div>
+                </div>
+                <div class="product-text-side">
+                    <div class="product-tag">02 / Thermal Food Grade Delivery</div>
+                    <h2 class="product-name">Clamshell Burger Packaging</h2>
+                    <p class="product-description">
+                        Manufactured with micro-flute corrugated kraft paper board, our clamshell packaging features ventilation cutouts to exhaust excess steam, maintaining structural integrity and preventing sogginess during delivery.
+                    </p>
+                    <ul class="product-specs-list">
+                        <li><strong>Base Paper:</strong> Corrugated Micro-Flute Kraft (280 – 350 GSM)</li>
+                        <li><strong>Branding Finish:</strong> Spot UV gloss, Eco Water-based Flexo Print</li>
+                        <li><strong>Standard Calipers:</strong> Slider box, single burger, double-patty box</li>
+                        <li><strong>Minimum Order Qty (MOQ):</strong> 10,000 Units</li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="contact.html" class="btn btn-primary magnetic">Request a Quote</a>
+                        <a href="about.html" class="btn btn-secondary">Learn Sourcing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 03. CAKE & CONFECTIONERY SECTION           -->
+        <!-- ========================================== -->
+        <section id="cake-box" class="product-detail-section section-padding-large">
+            <div class="container product-detail-grid">
+                <div class="product-text-side">
+                    <div class="product-tag">03 / Luxury Bakery Cases</div>
+                    <h2 class="product-name">Cake & Confectionery Boxes</h2>
+                    <p class="product-description">
+                        Elegant bakery box designs constructed from premium bleached white SBS boards. Outfitted with secure locking tabs and dust flaps. Supports gold/silver hot foil stamping, debossing patterns, and PET window integrations for visual displays.
+                    </p>
+                    <ul class="product-specs-list">
+                        <li><strong>Base Paper:</strong> Premium Bleached White SBS Board (300 – 350 GSM)</li>
+                        <li><strong>Branding Finish:</strong> Hot Gold/Silver Foil Stamp, Embossing</li>
+                        <li><strong>Standard Calipers:</strong> 0.5kg, 1kg, 2kg, custom cupcake inserts</li>
+                        <li><strong>Minimum Order Qty (MOQ):</strong> 5,000 Units</li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="contact.html" class="btn btn-primary magnetic">Request a Quote</a>
+                        <a href="about.html" class="btn btn-secondary">Learn Sourcing</a>
+                    </div>
+                </div>
+                <div class="product-visual-side">
+                    <div class="product-preview-container cake-container">
+                        <div class="product-preview-scene">
+                            <div class="folding-box cake-loader product-preview-box">
+                                <div class="face-wrapper front"><div class="face"><span>CAKE</span></div></div>
+                                <div class="face-wrapper back"><div class="face"><span>BOX</span></div></div>
+                                <div class="face-wrapper left"><div class="face"></div></div>
+                                <div class="face-wrapper right"><div class="face"></div></div>
+                                <div class="face-wrapper top"><div class="face"></div></div>
+                                <div class="face-wrapper bottom"><div class="face"></div></div>
+                            </div>
+                        </div>
+                        <span class="preview-instruction">Hover to Rotate & Open Box</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 04. PAPER STRAW PACKAGING SECTION          -->
+        <!-- ========================================== -->
+        <section id="straw-box" class="product-detail-section section-padding-large alternate-bg">
+            <div class="container product-detail-grid swap-order">
+                <div class="product-visual-side">
+                    <div class="product-preview-container straw-container">
+                        <div class="product-preview-scene">
+                            <div class="folding-box straw-loader product-preview-box">
+                                <div class="face-wrapper front"><div class="face"><span>STRAW</span></div></div>
+                                <div class="face-wrapper back"><div class="face"><span>PACK</span></div></div>
+                                <div class="face-wrapper left"><div class="face"></div></div>
+                                <div class="face-wrapper right"><div class="face"></div></div>
+                                <div class="face-wrapper top"><div class="face"></div></div>
+                                <div class="face-wrapper bottom"><div class="face"></div></div>
+                            </div>
+                        </div>
+                        <span class="preview-instruction">Hover to Rotate & Open Pack</span>
+                    </div>
+                </div>
+                <div class="product-text-side">
+                    <div class="product-tag">04 / Hygienic Beverage Protection</div>
+                    <h2 class="product-name">Paper Straw Packaging & Wraps</h2>
+                    <p class="product-description">
+                        Manufactured with high-tensile recycled kraft, our straw packaging wraps provide completely compostable, water-resistant layers. We apply food-grade natural gum seals to prevent contamination in restaurants and quick-service operations.
+                    </p>
+                    <ul class="product-specs-list">
+                        <li><strong>Base Paper:</strong> High-tensile Recycled Kraft (120 – 180 GSM)</li>
+                        <li><strong>Branding Finish:</strong> High-speed inline flexography, natural gum seal</li>
+                        <li><strong>Standard Calipers:</strong> Individual straw wrapper, multi-dispenser box</li>
+                        <li><strong>Minimum Order Qty (MOQ):</strong> 50,000 Units</li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="contact.html" class="btn btn-primary magnetic">Request a Quote</a>
+                        <a href="about.html" class="btn btn-secondary">Learn Sourcing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 05. FOOD CONTAINERS SECTION                -->
+        <!-- ========================================== -->
+        <section id="food-container" class="product-detail-section section-padding-large">
+            <div class="container product-detail-grid">
+                <div class="product-text-side">
+                    <div class="product-tag">05 / Heat-Retaining Liquid Barriers</div>
+                    <h2 class="product-name">Sustainable Food Containers</h2>
+                    <p class="product-description">
+                        Completely leak-proof food pails and noodle boxes featuring plant-based PLA moisture barriers. Engineered with high-strength structural bases to prevent base warping under hot liquids.
+                    </p>
+                    <ul class="product-specs-list">
+                        <li><strong>Base Paper:</strong> Food-grade Kraft with PLA barrier (230 – 300 GSM)</li>
+                        <li><strong>Branding Finish:</strong> Clay Panel Coating, High Gloss Offset Printing</li>
+                        <li><strong>Standard Calipers:</strong> 500ml, 750ml, 1000ml, 1200ml</li>
+                        <li><strong>Minimum Order Qty (MOQ):</strong> 20,000 Units</li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="contact.html" class="btn btn-primary magnetic">Request a Quote</a>
+                        <a href="about.html" class="btn btn-secondary">Learn Sourcing</a>
+                    </div>
+                </div>
+                <div class="product-visual-side">
+                    <div class="product-preview-container food-container-box">
+                        <div class="product-preview-scene">
+                            <div class="folding-box food-loader product-preview-box">
+                                <div class="face-wrapper front"><div class="face"><span>FOOD</span></div></div>
+                                <div class="face-wrapper back"><div class="face"><span>PAIL</span></div></div>
+                                <div class="face-wrapper left"><div class="face"></div></div>
+                                <div class="face-wrapper right"><div class="face"></div></div>
+                                <div class="face-wrapper top"><div class="face"></div></div>
+                                <div class="face-wrapper bottom"><div class="face"></div></div>
+                            </div>
+                        </div>
+                        <span class="preview-instruction">Hover to Rotate & Open Container</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 06. RETAIL SHOPPING BAGS SECTION           -->
+        <!-- ========================================== -->
+        <section id="shopping-bag" class="product-detail-section section-padding-large alternate-bg">
+            <div class="container product-detail-grid swap-order">
+                <div class="product-visual-side">
+                    <div class="product-preview-container retail-bag-container">
+                        <div class="product-preview-scene">
+                            <div class="folding-box bag-loader product-preview-box">
+                                <div class="face-wrapper front"><div class="face"><span>RETAIL</span></div></div>
+                                <div class="face-wrapper back"><div class="face"><span>BAG</span></div></div>
+                                <div class="face-wrapper left"><div class="face"></div></div>
+                                <div class="face-wrapper right"><div class="face"></div></div>
+                                <div class="face-wrapper top"><div class="face"></div></div>
+                                <div class="face-wrapper bottom"><div class="face"></div></div>
+                            </div>
+                        </div>
+                        <span class="preview-instruction">Hover to Rotate & Sway Handles</span>
+                    </div>
+                </div>
+                <div class="product-text-side">
+                    <div class="product-tag">06 / Boutique & Grocery Classics</div>
+                    <h2 class="product-name">Luxury Retail Shopping Bags</h2>
+                    <p class="product-description">
+                        Heavy-duty ribbed virgin kraft paper shopping bags featuring twisted paper loops or woven cotton handles. Formulated with reinforced double-folded top headers and bottom boards for robust loading.
+                    </p>
+                    <ul class="product-specs-list">
+                        <li><strong>Base Paper:</strong> High-tensile Ribbed Virgin Kraft (150 – 200 GSM)</li>
+                        <li><strong>Branding Finish:</strong> Embossed Gold Foil Seal, High Definition Flexo</li>
+                        <li><strong>Standard Calipers:</strong> Small, Medium, Large Boutique size</li>
+                        <li><strong>Minimum Order Qty (MOQ):</strong> 10,000 Units</li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="contact.html" class="btn btn-primary magnetic">Request a Quote</a>
+                        <a href="about.html" class="btn btn-secondary">Learn Sourcing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- DYNAMIC LAYOUT FOOTER PLACEHOLDER          -->
+    <!-- ========================================== -->
+    <div id="footer-placeholder">
+        <footer class="footer-section">
+            <div class="container footer-grid">
+                <div class="footer-col about-col">
+                    <a href="#" class="logo footer-logo">
+                        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2C30 2 38 10 38 20C38 30 30 38 20 38C10 38 2 30 2 20C2 10 10 2 20 2Z" fill="var(--color-primary)" />
+                            <path d="M20 6C14 14 12 22 20 34C28 22 26 14 20 6Z" fill="#FFF" fill-opacity="0.8" />
+                        </svg>
+                        <span class="logo-text">BELL <span>ECOPACK</span></span>
+                    </a>
+                    <p class="footer-desc">
+                        Manufacturing premium-grade, biodegradable, and compostable packaging lines that enhance modern brands. Protecting your products and our planet.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Products</h3>
+                    <ul>
+                        <li><a href="products.html">Popcorn Packaging</a></li>
+                        <li><a href="products.html">Burger Boxes</a></li>
+                        <li><a href="products.html">Cake & Bakery Boxes</a></li>
+                        <li><a href="products.html">Food Containers</a></li>
+                        <li><a href="products.html">Custom Printed Boxes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Manufacturing</h3>
+                    <ul>
+                        <li><a href="about.html">Cleanroom Facilities</a></li>
+                        <li><a href="about.html">Custom Die Designs</a></li>
+                        <li><a href="about.html">FSC Certified Paper</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Credentials -->
+            <div class="container cert-row">
+                <span class="cert-title">CERTIFIED GREEN MANUFACTURING:</span>
+                <div class="cert-grid">
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2zm0 4l6 12H6l6-12z" /></svg><span>FSC® C123456</span></div>
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M9 12l2 2 4-4" /></svg><span>ISO 9001:2015</span></div>
+                    <div class="cert-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 17v-5h6v5" /></svg><span>BRCGS FOOD GRADE</span></div>
+                </div>
+            </div>
+
+            <div class="container footer-copyright-bar">
+                <p>&copy; 2026 Bell Ecopack Private Limited. All Rights Reserved.</p>
+                <div class="copyright-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main Controller JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
