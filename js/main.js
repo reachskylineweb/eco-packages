@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             onComplete: () => {
                 gsap.to(preloader, {
                     clipPath: 'circle(0% at 50% 50%)',
-                    duration: 1.2,
+                    duration: 0.8,
                     ease: 'power4.inOut',
                     onComplete: () => {
                         preloader.style.display = 'none';
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Percentage counter counting smoothly (0 to 100)
         loaderTl.to({ val: 0 }, {
             val: 100,
-            duration: 3.2,
+            duration: 1.8,
             ease: 'power1.inOut',
             onUpdate: function() {
                 const currentVal = Math.round(this.targets()[0].val);
@@ -134,24 +134,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. Draw die lines
         loaderTl.to('.die-line', {
             strokeDashoffset: 0,
-            duration: 1.0,
+            duration: 0.6,
             ease: 'power2.inOut'
         }, 0.1);
 
-        // 3. Fold the box flaps upright (complete folds by 80% progress / 2.4 seconds)
-        loaderTl.to(front, { rotateX: 0, duration: 0.5, ease: 'power2.inOut' }, 0.5)
-                .to(back, { rotateX: 0, duration: 0.5, ease: 'power2.inOut' }, 0.8)
-                .to(left, { rotateX: 0, duration: 0.5, ease: 'power2.inOut' }, 1.1)
-                .to(right, { rotateX: 0, duration: 0.5, ease: 'power2.inOut' }, 1.4)
-                .to(top, { rotateX: 0, duration: 0.6, ease: 'power2.inOut' }, 1.7);
+        // 3. Fold the box flaps upright (complete folds by 1.5 seconds)
+        loaderTl.to(front, { rotateX: 0, duration: 0.3, ease: 'power2.inOut' }, 0.3)
+                .to(back, { rotateX: 0, duration: 0.3, ease: 'power2.inOut' }, 0.5)
+                .to(left, { rotateX: 0, duration: 0.3, ease: 'power2.inOut' }, 0.7)
+                .to(right, { rotateX: 0, duration: 0.3, ease: 'power2.inOut' }, 0.9)
+                .to(top, { rotateX: 0, duration: 0.4, ease: 'power2.inOut' }, 1.1);
 
-        // 4. Spin fully assembled box (starts at 2.2s, wraps up as percentage hits 100%)
+        // 4. Spin fully assembled box (starts at 1.2s, wraps up as timeline hits 1.8s)
         loaderTl.to(loaderBox, {
             rotateX: 340,
             rotateY: 405,
-            duration: 1.0,
+            duration: 0.6,
             ease: 'power3.out'
-        }, 2.2);
+        }, 1.2);
     }
 
     /* ---------------------------------------------------------
